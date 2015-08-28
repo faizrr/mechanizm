@@ -1,0 +1,21 @@
+.page-header
+  .pull-right.form-inline
+    .btn-group
+      %button.btn.btn-primary{"data-calendar-nav" => "prev"} << Назад
+      %button.btn.btn-default{"data-calendar-nav" => "today"} Сегодня
+      %button.btn.btn-primary{"data-calendar-nav" => "next"} Вперед >>
+    .btn-group
+      %button.btn.btn-warning{"data-calendar-view" => "year"} Год
+      %button.btn.btn-warning.active{"data-calendar-view" => "month"} Месяц
+      %button.btn.btn-warning{"data-calendar-view" => "week"} Неделя
+      %button.btn.btn-warning{"data-calendar-view" => "day"} День
+  %h3
+
+.row
+  .col-md-9
+    #calendar.cal-context
+  .col-md-3
+    %a.btn.btn-default.btn-lg.btn-block{href: 'new_event_url', style: "margin-top: 22pt"} Create new event
+    %h4 Предстоящие события:
+
+=# javascript_include_tag("calendar-config")
