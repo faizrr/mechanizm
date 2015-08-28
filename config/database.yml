@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: Mechanizm_development
+  database: Mechanizzm_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
