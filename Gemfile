@@ -55,6 +55,9 @@ gem 'simplecov','0.10.0'
 gem 'sidekiq'
 gem 'haml'
 gem 'haml-rails'
+gem 'validates_overlap'
+gem 'rabl'
+gem 'oj'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
