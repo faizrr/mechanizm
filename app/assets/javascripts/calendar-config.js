@@ -3,7 +3,7 @@
     "use strict";
 
     var options = {
-        events_source: function () { return []; },
+        events_source: 'events.json',
         view: 'month',
         first_day: 1,
         language: 'ru-RU',

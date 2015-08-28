@@ -22,6 +22,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    # check user_id with current_user
+  end
+
   private
     def event_params
       params.require(:event).permit(:title, :description, :start_datetime, :end_datetime)
