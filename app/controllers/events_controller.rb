@@ -2,7 +2,10 @@ class EventsController < ApplicationController
   respond_to :json
 
   def index
-    redirect_to calendar_path
+    @events = current_user.events.all
+    respond_to do |f|
+      f.json
+    end
   end
 
   def new
@@ -11,9 +14,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-
-    range = (@event.start_datetime..@event.end_datetime)
-
 
     if @event.save
       redirect_to calendar_path
