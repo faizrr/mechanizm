@@ -3,10 +3,8 @@
   = f.error_notification
   = f.input :title, required: true
   = f.input :description
-  = f.input :start_datetime, required: true
-  = f.input :end_datetime, required: true
+  = f.input :start_datetime, required: true, :as => :datetime_picker
+  = f.input :end_datetime, required: true, :as => :datetime_picker
   = #f.input :start_datetime, required: true, as: :datetime_picker, wrapper: :ranged_datetime, id: 'datetimepicker'
   = #f.input :end_datetime, required: true, as: :datetime_picker, wrapper: :ranged_datetime, id: 'datetimepicker'
   = f.button :submit
-
-=#javascript_include_tag("datetimepicker-config")

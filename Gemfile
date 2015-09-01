@@ -44,22 +44,26 @@ group :development, :test do
 end
 
 # User's gems
-gem 'devise','3.5.2'
-gem 'pundit','1.0.1'
-gem 'simple_form','3.1.0'
-gem 'pry','0.10.1'
-gem 'twitter-bootstrap-rails','3.2.0'
-gem 'omniauth','1.2.2'
-gem 'rspec','3.3.0'
-gem 'simplecov','0.10.0'
+gem 'devise'
+gem 'pundit'
+gem 'simple_form'
+gem 'pry'
+gem 'twitter-bootstrap-rails'
+gem 'omniauth'
+gem 'rspec'
+gem 'simplecov'
 gem 'sidekiq'
 gem 'haml'
 gem 'haml-rails'
 gem 'validates_overlap'
 gem 'rabl'
 gem 'oj'
+gem 'momentjs-rails', '2.9.0'
+#gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
   gem 'rails-assets-bootstrap-calendar'
 end
+
