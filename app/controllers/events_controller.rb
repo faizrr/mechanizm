@@ -2,7 +2,17 @@ class EventsController < ApplicationController
   respond_to :json
 
   def index
-    @events = current_user.events.all
+    from_time = params[:from]
+    to_time = params[:to]
+
+    # if from_time > to_time will be later
+
+    if from_time.blank? or to_time.blank?
+      @events = current_user.events.all
+    else
+      @events = current_user.events.where("start_datetime >= ? AND end_datetime <= ?", Time.at(from_time.to_i), Time.at(to_time.to_i))
+    end
+
     respond_to do |f|
       f.json
     end
