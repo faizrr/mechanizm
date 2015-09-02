@@ -10,6 +10,8 @@ class EventsController < ApplicationController
     if from_time.blank? or to_time.blank?
       @events = current_user.events.all
     else
+      from_time = from_time[0..-4]
+      to_time = to_time[0..-4]
       @events = current_user.events.where("start_datetime >= ? AND end_datetime <= ?", Time.at(from_time.to_i), Time.at(to_time.to_i))
     end
 
@@ -22,6 +24,10 @@ class EventsController < ApplicationController
     @event = current_user.events.build
   end
 
+  def edit
+    @event = current_user.events.find(params[:id])
+  end
+
   def create
     @event = current_user.events.build(event_params)
 
@@ -32,8 +38,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    @event = current_user.events.find(params[:id])
+
+    if @event.update(event_params)
+      redirect_to calendar_path
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
-    # check user_id with current_user
+    #need pundit
   end
 
   private

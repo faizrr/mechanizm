@@ -1,0 +1,11 @@
+%h2 Edit event
+= simple_form_for @event do |f|
+  = f.error_notification
+  = f.input :title, required: true
+  = f.input :description
+  = f.input :start_datetime, required: true, :as => :datetime_picker
+  = f.input :end_datetime, required: true, :as => :datetime_picker
+  = #f.input :start_datetime, required: true, as: :datetime_picker, wrapper: :ranged_datetime, id: 'datetimepicker'
+  = #f.input :end_datetime, required: true, as: :datetime_picker, wrapper: :ranged_datetime, id: 'datetimepicker'
+  = f.button :submit
+  = link_to "Delete", f.object, class: 'btn btn-default', method: :delete, data: { confirm: 'Уверен?' }
