@@ -45,11 +45,13 @@ end
 
 # User's gems
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-vkontakte'
+gem 'omniauth-twitter'
 gem 'pundit'
 gem 'simple_form'
 gem 'pry'
 gem 'twitter-bootstrap-rails'
-gem 'omniauth'
 gem 'rspec'
 gem 'simplecov'
 gem 'sidekiq'
