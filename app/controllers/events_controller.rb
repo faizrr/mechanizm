@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   respond_to :json
+  before_action :setEvent, only: [:edit,:update,:destroy]
 
   def index
     from_time = params[:from]
@@ -25,7 +26,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = current_user.events.find(params[:id])
+
   end
 
   def create
@@ -39,8 +40,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = current_user.events.find(params[:id])
-
     if @event.update(event_params)
       redirect_to calendar_path
     else
@@ -49,10 +48,16 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    #need pundit
+    @event.destroy
+    redirect_to calendar_path
   end
 
   private
+    def setEvent
+      @event = Event.find(params[:id])
+      authorize @event, :owned?
+    end
+
     def event_params
       params.require(:event).permit(:title, :description, :start_datetime, :end_datetime)
     end
