@@ -33,6 +33,8 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
+      EventMailer.eventNotification(current_user,@event).deliver_later(wait_until: @event.start_datetime - 15.minutes)
+      #UserMailer.welcome_email(current_user).deliver_later
       redirect_to calendar_path
     else
       render 'new'
@@ -41,6 +43,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
+      EventMailer.eventNotification(current_user,@event).deliver_later(wait_until: @event.start_datetime - 15.minutes)
       redirect_to calendar_path
     else
       render 'edit'

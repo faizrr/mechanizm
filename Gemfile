@@ -45,6 +45,7 @@ end
 
 # User's gems
 gem 'devise'
+gem 'devise-async'
 gem 'omniauth'
 gem 'omniauth-vkontakte'
 gem 'omniauth-twitter'
@@ -63,6 +64,8 @@ gem 'oj'
 gem 'momentjs-rails', '2.9.0'
 #gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+
+gem 'sinatra', :require => nil
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
