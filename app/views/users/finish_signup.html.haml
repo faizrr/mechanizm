@@ -1,4 +1,9 @@
 %h2 Sign up
+- if @show_errors && @user.errors.any?
+  .alert.alert-danger
+    - @user.errors.full_messages.each do |msg|
+      = msg
+
 = simple_form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f|
   = f.error_notification
   .form-inputs

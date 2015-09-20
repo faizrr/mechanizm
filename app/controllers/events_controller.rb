@@ -6,12 +6,10 @@ class EventsController < ApplicationController
     from_time = params[:from]
     to_time = params[:to]
 
-    # if from_time > to_time will be later
-
     if from_time.blank? or to_time.blank?
       @events = current_user.events.all
     else
-      from_time = from_time[0..-4]
+      from_time = from_time[0..-4] # bootstrap-calendar needs timestamp in ms, but db needs in s
       to_time = to_time[0..-4]
       @events = current_user.events.where("start_datetime >= ? AND end_datetime <= ?", Time.at(from_time.to_i), Time.at(to_time.to_i))
     end
@@ -34,7 +32,6 @@ class EventsController < ApplicationController
 
     if @event.save
       EventMailer.eventNotification(current_user,@event).deliver_later(wait_until: @event.start_datetime - 15.minutes)
-      #UserMailer.welcome_email(current_user).deliver_later
       redirect_to calendar_path
     else
       render 'new'
