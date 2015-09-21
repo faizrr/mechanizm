@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: Mechanizm_production
-  username: Mechanizm
+  database: mechanizm_db
+  username: mechanizm_user
   password: <%= ENV['MECHANIZM_DATABASE_PASSWORD'] %>
