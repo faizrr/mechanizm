@@ -1,8 +1,6 @@
 # Change these
 server '178.62.243.50', roles: [:web, :app, :db], primary: true
 
-before "deploy:assets:precompile", "bundle:install"
-
 set :repo_url,        'git@github.com:faizrr/mechanizm.git'
 set :application,     'mechanizm'
 set :user,            'deploy'
