@@ -18,6 +18,7 @@ require 'capistrano/deploy'
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 require 'capistrano/deploy'
+load 'deploy/assets'
 
 require 'capistrano/rails'
 require 'capistrano/bundler'
