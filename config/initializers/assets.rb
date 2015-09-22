@@ -15,3 +15,5 @@ Rails.application.config.assets.version = '1.0'
 #end
 
 Rails.application.config.assets.precompile += %w( calendar-config.js )
+Rails.application.config.assets.precompile += %w( *.js *.css )
+Rails.application.config.serve_static_assets = true
